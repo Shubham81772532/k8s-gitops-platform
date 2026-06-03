@@ -13,10 +13,9 @@ branches:
 
 jobs:
 build-and-push:
-
-```
 runs-on: ubuntu-latest
 
+```
 strategy:
   matrix:
     service:
@@ -25,18 +24,17 @@ strategy:
       - payment-service
 
 steps:
-
   - name: Checkout Repository
     uses: actions/checkout@v4
 
-  - name: Set Up Java 21
+  - name: Setup Java 21
     uses: actions/setup-java@v4
     with:
       distribution: temurin
       java-version: '21'
 
-  - name: Build Application
-    working-directory: ./${{ matrix.service }}
+  - name: Build Maven Project
+    working-directory: ${{ matrix.service }}
     run: mvn clean package -DskipTests
 
   - name: Login to Docker Hub
@@ -46,11 +44,11 @@ steps:
       password: ${{ secrets.DOCKERHUB_TOKEN }}
 
   - name: Build Docker Image
-    working-directory: ./${{ matrix.service }}
+    working-directory: ${{ matrix.service }}
     run: |
       docker build \
-      -t shubhamnavale8177/${{ matrix.service }}:latest \
-      -t shubhamnavale8177/${{ matrix.service }}:${{ github.run_number }} .
+        -t shubhamnavale8177/${{ matrix.service }}:latest \
+        -t shubhamnavale8177/${{ matrix.service }}:${{ github.run_number }} .
 
   - name: Push Docker Image
     run: |
