@@ -1,0 +1,37 @@
+namespace: production
+
+app:
+  name: order-service
+
+image:
+  repository: shubhamnavale8177/order-service
+  tag: v1 
+  pullPolicy: Always
+
+replicaCount: 2
+
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  host: order.production.local
+  path: /api/orders
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+
+  limits:
+    cpu: 1
+    memory: 1Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  targetCPUUtilizationPercentage: 70

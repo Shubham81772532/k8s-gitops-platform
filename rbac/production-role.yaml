@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+
+metadata:
+  namespace: production
+  name: production-admin-role
+
+rules:
+- apiGroups: ["", "apps"]
+
+  resources:
+    - pods
+    - services
+    - deployments
+    - configmaps
+    - secrets
+    - ingress
+
+  verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - delete

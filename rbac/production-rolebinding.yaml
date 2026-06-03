@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+
+metadata:
+  name: production-admin-binding
+  namespace: production
+
+subjects:
+- kind: ServiceAccount
+  name: devops-admin
+  namespace: production
+
+roleRef:
+  kind: Role
+  name: production-admin-role
+  apiGroup: rbac.authorization.k8s.io

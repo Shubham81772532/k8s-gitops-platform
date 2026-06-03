@@ -1,0 +1,37 @@
+namespace: staging
+
+app:
+  name: user-service
+
+image:
+  repository: shubhamnavale8177/user-service
+  tag: v1
+  pullPolicy: Always
+
+replicaCount: 2
+
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  host: user.staging.local
+  path: /api/users
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  targetCPUUtilizationPercentage: 60
