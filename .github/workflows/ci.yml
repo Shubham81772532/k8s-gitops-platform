@@ -15,7 +15,7 @@ jobs:
 build-and-push:
 runs-on: ubuntu-latest
 
-```
+
 strategy:
   matrix:
     service:
@@ -54,4 +54,4 @@ steps:
     run: |
       docker push shubhamnavale8177/${{ matrix.service }}:latest
       docker push shubhamnavale8177/${{ matrix.service }}:${{ github.run_number }}
-```
+
