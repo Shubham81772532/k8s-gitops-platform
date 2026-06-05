@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 
 metadata:
-  name: {{ .Values.app.name }}
+  name: {{ .Chart.Name }}
   labels:
     release: monitoring
 
@@ -13,7 +13,7 @@ spec:
 
   selector:
     matchLabels:
-      app: {{ .Values.app.name }}
+      app: {{ .Chart.Name }}
 
   endpoints:
     - port: http
