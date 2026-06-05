@@ -31,7 +31,9 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
 
 ingress:
-  enabled: false
+  enabled: true
+  host: order-service.local
+  path: /
 
 httpRoute:
   enabled: false
