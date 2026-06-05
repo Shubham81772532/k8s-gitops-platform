@@ -1,3 +1,6 @@
+app:
+  name: payment-service
+
 # Default values for helm.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
