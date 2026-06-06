@@ -14,12 +14,10 @@ service:
   type: ClusterIP
   port: 80
 
-
 resources:
   requests:
     cpu: "100m"
     memory: "128Mi"
-
   limits:
     cpu: "500m"
     memory: "512Mi"
@@ -32,7 +30,7 @@ autoscaling:
 
 ingress:
   enabled: true
-  host: user-service.local
+  host: user-service.example.com
   path: /
 
 httpRoute:
