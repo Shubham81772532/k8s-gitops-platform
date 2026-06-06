@@ -4,7 +4,7 @@ app:
   name: order-service
 
 image:
-  repository: shubhamnavale8177/order-service
+  repository: https://github.com/Shubham81772532/k8s-gitops-platform.git
   tag: v1
   pullPolicy: Always
 

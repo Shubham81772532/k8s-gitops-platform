@@ -4,7 +4,7 @@ app:
   name: user-service
 
 image:
-  repository: shubhamnavale8177/user-service
+  repository: https://github.com/Shubham81772532/k8s-gitops-platform.git
   tag: v1
   pullPolicy: Always
 
