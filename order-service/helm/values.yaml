@@ -14,7 +14,6 @@ service:
   type: ClusterIP
   port: 80
 
-
 resources:
   requests:
     cpu: 50m
@@ -32,6 +31,7 @@ autoscaling:
 
 ingress:
   enabled: true
+  className: nginx
   host: order-service.local
   path: /
 
