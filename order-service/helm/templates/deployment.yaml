@@ -90,11 +90,11 @@ spec:
               port: 8080
             initialDelaySeconds: 30
             periodSeconds: 10
-            failureThreshold: 3
+            failureThreshold: 1
           livenessProbe:
             httpGet:
               path: /api/orders/health
               port: 8080
             initialDelaySeconds: 60
             periodSeconds: 20
-            failureThreshold: 3
+            failureThreshold: 1
